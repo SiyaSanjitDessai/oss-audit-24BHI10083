@@ -35,25 +35,25 @@ Asks the user three questions interactively and generates a personalised open so
 
 ### Steps
 1. Clone the repository:
-   git clone https://github.com/[yourusername]/oss-audit-24BHI10083
+   git clone https://github.com/SiyaSanjitDessai/oss-audit-24BHI10083
    cd oss-audit-24BHI10083
 
-2. Give execute permission to all scripts:
+3. Give execute permission to all scripts:
    chmod +x script*.sh
 
-3. Run Script 1:
+4. Run Script 1:
    ./script1_system_identity.sh
 
-4. Run Script 2:
+5. Run Script 2:S
    ./script2_package_inspector.sh
 
-5. Run Script 3:
+6. Run Script 3:
    ./script3_disk_permission_auditor.sh
 
-6. Run Script 4 (provide a log file path):
+7. Run Script 4 (provide a log file path):
    ./script4_log_analyzer.sh /var/log/syslog error
 
-7. Run Script 5:
+8. Run Script 5:
    ./script5_manifesto_generator.sh
 
 ## Dependencies
