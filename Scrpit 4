@@ -1,0 +1,31 @@
+#!/bin/bash
+# Script 4: Log File Analyzer
+# Usage: ./log_analyzer.sh /path/to/logfile [keyword]
+
+LOGFILE=$1
+KEYWORD=${2:-"error"}
+COUNT=0
+
+while true; do
+    if [ -s "$LOGFILE" ]; then
+        break
+    else
+        echo "Warning: File '$LOGFILE' not found or is empty."
+        read -p "Please enter a valid log file path: " LOGFILE
+    fi
+done
+
+while IFS= read -r LINE; do
+    if echo "$LINE" | grep -iq "$KEYWORD"; then
+        COUNT=$((COUNT + 1))
+    fi
+done < "$LOGFILE"
+
+echo ""
+echo "Keyword '$KEYWORD' found $COUNT times in $LOGFILE"
+echo "----------------------------------------"
+
+if [ $COUNT -gt 0 ]; then
+    echo "Last 5 occurrences of '$KEYWORD':"
+    grep -i "$KEYWORD" "$LOGFILE" | tail -n 5
+fi
